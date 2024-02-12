@@ -1,6 +1,9 @@
 Feature: User verify the Login page
   @dev
   Scenario: Successfully log into webgains app with valid credentials
+Feature: User verify the Login page
+  @dev
+  Scenario: Successfully log into webgains app with valid credentials
       Given the user launch the webgains application
       When the user provide valid email Id and password
       And the user click on the login button
