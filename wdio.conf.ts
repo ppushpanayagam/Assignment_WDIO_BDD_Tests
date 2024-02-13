@@ -87,7 +87,7 @@ export const config: Options.Testrunner = {
             "moz:firefoxOptions":{
                 args:[
                     '--headless',
-                    '--disable-gpu'
+                    '--disable-gpu',
                 ]
             }
 
@@ -299,7 +299,7 @@ export const config: Options.Testrunner = {
      */
     
 
-    afterStep: async function (step, scenario, { error, duration, passed }, context) {
+    afterStep: async function (step:any, scenario:any, { error, duration, passed}, context:any) {
         if (!passed) {
           await browser.takeScreenshot();
         }
