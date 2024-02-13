@@ -9,7 +9,7 @@ class LoginPage extends Page {
     }
 
     public get getLoginPageHeader () {
-        return $('h3>div');
+        return $(locator.loginPage_Header);
     }
 
     public async verifyLoginPageHeaderText(){
@@ -18,7 +18,7 @@ class LoginPage extends Page {
     }
 
     public get emailId () {
-        return $("input[id='amplify-id-:r3:']");
+        return $(locator.emailId_Field);
     }
 
     public async enterEmailId(value:string){
@@ -27,7 +27,7 @@ class LoginPage extends Page {
     }
 
     public get password () {
-        return $("input[id='amplify-id-:r6:']");
+        return $(locator.password_Field);
     }
 
     public async enterPaswword(value:string){
@@ -36,39 +36,13 @@ class LoginPage extends Page {
     }
 
     public get loginbtn () {
-        return $("button[type='submit']");
+        return $(locator.login_Btn);
     }
 
     public async clickLoginButton(){
 
         return await this.loginbtn.click()
     }
-
-    public get getDashBordHeader () {
-        return $('h1[class="wg-title"]');
-    }
-    
-    public get extraFieldBtn () {
-        return $("#btnExtraFields");
-    }
-
-    public async clickExtraFieldButton(){
-
-        await this.extraFieldBtn.moveTo()
-        return await this.extraFieldBtn.click()
-    }
-
-    public get transaction () {
-        return $("//a[contains(text(), 'Transactions Report')]");
-    }
-
-    public async selectTransactionMenu(){
-
-        return await this.transaction.click()
-    }
-
-    
-    
 
 }
 

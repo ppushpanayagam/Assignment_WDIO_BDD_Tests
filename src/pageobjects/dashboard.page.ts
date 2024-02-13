@@ -1,10 +1,11 @@
 import Page from './page';
 import { $, expect } from '@wdio/globals'
+import * as locator from '../../config/locator.json'
 
 class DashBoardPage extends Page {
     
     public get getDashBordHeader () {
-        return $('h1[class="wg-title"]');
+        return $(locator.dashboard_PageHeader);
     }
 
     public async verifyDashBoardPageHeaderText(){
@@ -13,7 +14,7 @@ class DashBoardPage extends Page {
     }
 
     public get getAllMainMenu () {
-        return $$('div.wrapper:nth-child(1) > ul>li');
+        return $$(locator.listOfAllNavigation_Menu);
     }
 
     public async selectNavigationBar(menu:string){
@@ -28,12 +29,12 @@ class DashBoardPage extends Page {
     }
 
     public get getAllSideMenu () {
-        return $$('//div/ul/li/div/ul/li/a');
+        return $$(locator.listOfAllSide_Menu);
     }
 
     public async selectSubMenuFromMainMenu(submMenu:string){
 
-        let nav = browser.$$('//div/ul/li/div/ul/li/a');
+        let nav = browser.$$(locator.listOfAllSub_Menu);
         await nav.forEach(async (element)=>{
 
             if(await element.getText() === submMenu)
@@ -72,7 +73,7 @@ class DashBoardPage extends Page {
     }
 
     public get userDetails () {
-        return $("#user-dropdown>div>span");
+        return $(locator.userDetails);
     }
 
     public async verifyUserDetails(){

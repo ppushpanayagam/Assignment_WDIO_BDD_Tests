@@ -1,9 +1,10 @@
 import Page from './page';
+import * as locator from '../../config/locator.json'
 
 class TransactionReportPage extends Page {
     
     public get getTransactionPageHeader () {
-        return $('h1[class="wg-title"]');
+        return $(locator.transaction_PageHeader);
     }
 
     public async verifyTransactionReportPageHeader(){
@@ -12,7 +13,7 @@ class TransactionReportPage extends Page {
     }
 
     public get dateRange () {
-        return $("#dateRange");
+        return $(locator.dateRange_Section);
     }
 
     public async clickOnDateRange(){
@@ -22,7 +23,7 @@ class TransactionReportPage extends Page {
     }
 
     public get startDate () {
-        return $("div[class='calendar left']>div>input");
+        return $(locator.startDateForTransactionReport);
     }
 
     public async enterStartDate(value:string){
@@ -31,7 +32,7 @@ class TransactionReportPage extends Page {
     }
 
     public get endDate () {
-        return $("div[class='calendar left']>div>input");
+        return $(locator.endDateForTransactionReport);
     }
 
     public async enterEndDate(value:string){
@@ -40,7 +41,7 @@ class TransactionReportPage extends Page {
     }
 
     public get applyBtn () {
-        return $(".range_inputs>button:first-child");
+        return $(locator.applyFilterBtn);
     }
 
     public async clickOnApplyButton(){
@@ -49,7 +50,7 @@ class TransactionReportPage extends Page {
     }
 
     public get applybtnForFilter () {
-        return $(".range_inputs>button:first-child");
+        return $(locator.applyMainFilterBtn);
     }
 
     public async clickOnApplyBtnToFilter(){
@@ -58,7 +59,7 @@ class TransactionReportPage extends Page {
     }
 
     public get bottom () {
-        return $$('div[class="margin-bottom-20 row"]>div>div>div>div:last-child');
+        return $$(locator.footerDetails);
     }
 
 }

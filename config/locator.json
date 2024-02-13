@@ -1,0 +1,18 @@
+{
+    "loginPage_Header": "h3>div",
+    "emailId_Field": "input[id='amplify-id-:r3:']",
+    "password_Field": "input[id='amplify-id-:r6:']",
+    "login_Btn": "button[type='submit']",
+    "dashboard_PageHeader": "h1[class='wg-title']",
+    "listOfAllNavigation_Menu": "div.wrapper:nth-child(1) > ul>li",
+    "listOfAllSide_Menu": "//div/ul/li/div/ul/li/a",
+    "listOfAllSub_Menu": "//div/ul/li/div/ul/li/a",
+    "userDetails": "#user-dropdown>div>span",
+    "transaction_PageHeader": "h1[class='wg-title']",
+    "dateRange_Section": "#dateRange",
+    "startDateForTransactionReport": "div[class='calendar left']>div>input",
+    "endDateForTransactionReport": "div[class='calendar left']>div>input",
+    "applyFilterBtn": ".range_inputs>button:first-child",
+    "applyMainFilterBtn": ".range_inputs>button:first-child",
+    "footerDetails": "div[class='margin-bottom-20 row']>div>div>div>div:last-child"
+}
