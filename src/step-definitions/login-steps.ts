@@ -2,6 +2,7 @@ import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect } from '@wdio/globals'
 import loginPage from '../pageobjects/login.page';
 import dashBoardPage from '../pageobjects/dashboard.page';
+import { env } from '../env/parseEnv';
 
 
 Given(/^the user launch the webgains application$/, async () => {
@@ -10,7 +11,7 @@ Given(/^the user launch the webgains application$/, async () => {
 
 When(/^the user provide valid email Id and password$/, async () => {
     await loginPage.enterEmailId("QATaskApplicant@webgains.com")
-    await loginPage.enterPaswword("7t14GHP{QgL?")
+    await loginPage.enterPaswword(`${env('secret_key')}`)
 });
 
 When(/^the user click on the login button$/, async () => {
