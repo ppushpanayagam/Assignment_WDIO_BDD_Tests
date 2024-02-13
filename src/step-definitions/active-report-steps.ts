@@ -20,16 +20,6 @@ Given(/^the user should be redirected to the Active Report page$/, async () => {
     expect(await activeReportPage.verifyActiveReportPageHeader()).toBe(data.Active_PageHeader)
 });
 
-When(/^the user set the expected date range to view the active report$/, async () => {
-    
-    
-});
-
-When(/^the user click on main filter apply button$/, async () => {
-    
-   
-});
-
 Then(/^the user should see the active report for the specified date range$/, async () => {
 
     await expect(activeReportPage.verifyTheResults(data.startDate)).toBeTruthy()

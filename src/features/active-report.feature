@@ -12,8 +12,8 @@ Feature: User verify the Active Report
             And the user select the Reports navigation menu
             And the user click on the Active Report sub-navigation menu
             And the user should be redirected to the Active Report page
-            When the user set the expected date range to view the active report
-            And the user click on main filter apply button
+            When the user set the expected date range to view the report
+            And the user click on apply button
             Then the user should see the active report for the specified date range
             And the user should see the price and commission as expected
         
