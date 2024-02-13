@@ -1,3 +1,0 @@
-{
-  "url": "https://platform.alpha.webgains.team/"
-}

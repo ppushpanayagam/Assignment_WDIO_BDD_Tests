@@ -1,5 +1,12 @@
 import type { Options } from '@wdio/types'
+const allure = require('allure-commandline')
+import fs from 'node:fs/promises'
+ let allureDir = './reports/allure'
+ const path = require('path')
+
 export const config: Options.Testrunner = {
+
+    port: 4723,
     //
     // ====================
     // Runner Configuration
@@ -52,15 +59,54 @@ export const config: Options.Testrunner = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 2,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome'
-    }],
+    capabilities: [
+        {
+        browserName: 'chrome',
+        maxInstances: 1
+        // ,
+        //     "goog:chromeOptions":{
+        //         args:[
+        //             '--headless',
+        //             '--disable-dev-shm-usage',
+        //             '--no-sandbox'
+        //         ]
+        //     }
+
+        },
+        {
+            browserName: 'firefox',
+            maxInstances: 1
+            // ,
+            // "moz:firefoxOptions":{
+            //     args:[
+            //         '--headless'
+            //     ]
+            // }
+
+        },
+        // {
+        //     'appium:platformName': 'Android',
+        //     'appium:platformVersion': '12',
+        //     'appium:automationName': "Uiautomator2",
+        //     'appium:deviceName': "pixel-5",
+        //     'appium:app': path.join(process.cwd(),'app/ApiDemos-debug.apk')
+        // }
+        // ,
+        // {
+        //     'appium:platformName': 'iOS',
+        //     'appium:platformVersion': '15',
+        //     'appium:automationName': "XCUITest",
+        //     'appium:deviceName': "iPhone 15 Pro Max",
+        //     'appium:udid': 'CF39F663-2A16-4372-97E0-31FD00A04E7E',
+        //     'appium:app': path.join(process.cwd(),'app/ApiDemos-debug.apk')
+        // }
+    ],
 
     //
     // ===================
@@ -109,7 +155,7 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+    services: ['chromedriver', 'geckodriver'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -132,7 +178,11 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',['allure', {
+        outputDir: allureDir+'/allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -173,8 +223,9 @@ export const config: Options.Testrunner = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        return fs.rm('reports/allure-results', { recursive: true });
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -185,6 +236,7 @@ export const config: Options.Testrunner = {
      * @param  {object} execArgv list of string arguments passed to the worker process
      */
     // onWorkerStart: function (cid, caps, specs, args, execArgv) {
+        
     // },
     /**
      * Gets executed just after a worker process has exited.
@@ -212,8 +264,9 @@ export const config: Options.Testrunner = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        return fs.rm('./reports/allure-report', { recursive: true });
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
@@ -258,8 +311,13 @@ export const config: Options.Testrunner = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    
+
+    afterStep: async function (step, scenario, { error, duration, passed }, context) {
+        if (!passed) {
+          await browser.takeScreenshot();
+        }
+      },
     /**
      *
      * Runs after a Cucumber Scenario.
@@ -316,7 +374,29 @@ export const config: Options.Testrunner = {
      * @param {<Object>} results object containing test results
      */
     // onComplete: function(exitCode, config, capabilities, results) {
+        
     // },
+
+    onComplete: function() {
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', allureDir+'/allure-results', '--clean', '-o', allureDir+'/allure-report'])
+        return new Promise<void>((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                5000)
+
+            generation.on('exit', function(exitCode: number) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
+    }
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session

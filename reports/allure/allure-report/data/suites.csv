@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Feb 13 01:57:11 GMT 2024","Tue Feb 13 01:57:11 GMT 2024","0","","User verify the Login page: Successfully log into webgains app with valid credentials","","","","",""
+"passed","Tue Feb 13 00:58:43 GMT 2024","Tue Feb 13 00:58:45 GMT 2024","1904","","User verify the Login page: Successfully log into webgains app with valid credentials","","","","Given the user launch the webgains application",""
+"passed","Tue Feb 13 00:58:45 GMT 2024","Tue Feb 13 00:58:45 GMT 2024","4","","User verify the Login page: Successfully log into webgains app with valid credentials","","","","",""
+"passed","Tue Feb 13 01:57:07 GMT 2024","Tue Feb 13 01:57:11 GMT 2024","3769","","User verify the Login page: Successfully log into webgains app with valid credentials","","","","Given the user launch the webgains application",""
+"passed","Tue Feb 13 01:58:53 GMT 2024","Tue Feb 13 01:58:56 GMT 2024","2616","","User verify the Login page: Successfully log into webgains app with valid credentials","","","","Given the user launch the webgains application",""
+"passed","Tue Feb 13 01:58:56 GMT 2024","Tue Feb 13 01:58:56 GMT 2024","0","","User verify the Login page: Successfully log into webgains app with valid credentials","","","","",""

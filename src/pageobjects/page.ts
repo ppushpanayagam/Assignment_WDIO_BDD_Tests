@@ -4,6 +4,6 @@ export default class Page {
     
     public open (path: string) {
         browser.maximizeWindow()
-        return browser.url(`https://platform.alpha.webgains.team${path}`)
+        return browser.url(`http://platform.alpha.webgains.team${path}`)
     }
 }
