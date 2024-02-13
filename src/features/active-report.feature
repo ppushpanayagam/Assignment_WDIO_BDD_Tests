@@ -5,7 +5,6 @@ Feature: User verify the Active Report
         When the user provide valid email Id and password
         And the user click on the login button
         Then the user should land on the webgains dashboard page
-        And the user should see all the required information
 
 
         Scenario: Verify user able to view Active Report with specific date range

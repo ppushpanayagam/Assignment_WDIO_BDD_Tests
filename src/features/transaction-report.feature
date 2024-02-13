@@ -5,7 +5,6 @@ Feature: User able to view the Transaction Report
         When the user provide valid email Id and password
         And the user click on the login button
         Then the user should land on the webgains dashboard page
-        # And the user should see all the required information
 
         @dev
         Scenario: Verify user able to view Transaction Report with specific date range
