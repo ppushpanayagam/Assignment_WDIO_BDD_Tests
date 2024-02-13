@@ -5,6 +5,7 @@ import * as data from '../../config/testData.json'
 import transactionReportPage from '../pageobjects/transaction-report.page';
 
 Given(/^the user on the webgains dashboard page$/, async () => {
+    
     expect(await dashBoardPage.verifyDashBoardPageHeaderText()).toBe(data.DashBoard_Title)
 });
 

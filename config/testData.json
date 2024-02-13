@@ -3,6 +3,7 @@
     "select_Report_Menu": "Reports",
     "select_Transaction_Menu": "Transactions Report",
     "transaction_PageHeader": "Transactions Report",
+    "Active_PageHeader": "Transactions Report",
     "startDate": "2024/01/04",
     "endDate": "2024/02/10"
 }
