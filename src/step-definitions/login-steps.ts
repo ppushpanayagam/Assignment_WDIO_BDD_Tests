@@ -3,6 +3,7 @@ import { expect } from '@wdio/globals'
 import loginPage from '../pageobjects/login.page';
 import dashBoardPage from '../pageobjects/dashboard.page';
 import { env } from '../env/parseEnv';
+import * as data from '../../config/testData.json'
 
 
 Given(/^the user launch the webgains application$/, async () => {
@@ -19,6 +20,6 @@ When(/^the user click on the login button$/, async () => {
 });
 
 Then(/^the user should land on the webgains dashboard page$/, async () => {
-    expect(await dashBoardPage.verifyDashBoardPageHeaderText()).toBe('Dashboard')
+    expect(await dashBoardPage.verifyDashBoardPageHeaderText()).toBe(data.DashBoard_Title)
 });
 

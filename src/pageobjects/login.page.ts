@@ -1,5 +1,6 @@
 import { $, expect } from '@wdio/globals'
 import Page from './page';
+import * as locator from '../../config/locator.json'
 
 class LoginPage extends Page {
 
