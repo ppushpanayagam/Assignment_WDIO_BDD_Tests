@@ -69,27 +69,27 @@ export const config: Options.Testrunner = {
         {
         browserName: 'chrome',
         maxInstances: 1
-        ,
-            "goog:chromeOptions":{
-                args:[
-                    '--headless',
-                    '--disable-gpu',
-                    '--disable-dev-shm-usage',
-                    '--no-sandbox'
-                ]
-            }
+        // ,
+        //     "goog:chromeOptions":{
+        //         args:[
+        //             '--headless',
+        //             '--disable-gpu',
+        //             '--disable-dev-shm-usage',
+        //             '--no-sandbox'
+        //         ]
+        //     }
 
         },
         {
             browserName: 'firefox',
             maxInstances: 1
-            ,
-            "moz:firefoxOptions":{
-                args:[
-                    '--headless',
-                    '--disable-gpu',
-                ]
-            }
+            // ,
+            // "moz:firefoxOptions":{
+            //     args:[
+            //         '--headless',
+            //         '--disable-gpu',
+            //     ]
+            // }
 
         }
     ],
