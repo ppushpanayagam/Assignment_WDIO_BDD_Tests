@@ -89,23 +89,7 @@ export const config: Options.Testrunner = {
             //     ]
             // }
 
-        },
-        // {
-        //     'appium:platformName': 'Android',
-        //     'appium:platformVersion': '12',
-        //     'appium:automationName': "Uiautomator2",
-        //     'appium:deviceName': "pixel-5",
-        //     'appium:app': path.join(process.cwd(),'app/ApiDemos-debug.apk')
-        // }
-        // ,
-        // {
-        //     'appium:platformName': 'iOS',
-        //     'appium:platformVersion': '15',
-        //     'appium:automationName': "XCUITest",
-        //     'appium:deviceName': "iPhone 15 Pro Max",
-        //     'appium:udid': 'CF39F663-2A16-4372-97E0-31FD00A04E7E',
-        //     'appium:app': path.join(process.cwd(),'app/ApiDemos-debug.apk')
-        // }
+        }
     ],
 
     //

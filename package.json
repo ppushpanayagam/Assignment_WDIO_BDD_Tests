@@ -34,6 +34,7 @@
     "wdio-geckodriver-service": "^5.0.2"
   },
   "dependencies": {
-    "@wdio/appium-service": "^8.31.1"
+    "@wdio/appium-service": "^8.31.1",
+    "dotenv": "^16.4.3"
   }
 }

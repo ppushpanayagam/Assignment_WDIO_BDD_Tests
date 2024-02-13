@@ -1,7 +1,9 @@
 import type { Options } from '@wdio/types'
  const path = require('path')
  import { config as baseConfig } from './wdio.conf'
-
+ import dotenv from 'dotenv'
+ import {env} from './src/env/parseEnv'
+ dotenv.config();
 export const config: Options.Testrunner = {
 
     ...baseConfig,
@@ -10,11 +12,11 @@ export const config: Options.Testrunner = {
 
     capabilities: [
         {
-            'appium:platformName': 'Android',
-            'appium:platformVersion': '12',
-            'appium:automationName': "Uiautomator2",
-            'appium:deviceName': "pixel-5",
-            'appium:app': path.join(process.cwd(),'app/ApiDemos-debug.apk')
+            'appium:platformName': `${env('PLATFORMNAME_ANDROID')}`,
+            'appium:platformVersion': `${env('PLATFORMVERSION_ANDROID')}`,
+            'appium:automationName': `${env('AUTOMATION_NAME_ANDROID')}`,
+            'appium:deviceName': `${env('DEVICE_NAME_ANDROID')}`,
+            'appium:app': path.join(process.cwd(),`${env('APP')}`)
         }
     ]
 }
