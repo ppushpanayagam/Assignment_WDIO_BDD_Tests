@@ -13,8 +13,7 @@ jobs:
           run: npm install
         - name: Test
           run: npm run wdio
-        - uses: actions/upload-artifact@v1
-          if: failure()
+        - uses: actions/upload-artifact@v3
           with:
             name: Allure Report
             path: ./reports/allure/allure-report
