@@ -12,6 +12,23 @@ class ActiveReportPage extends Page {
 
         return await this.getTransactionPageHeader.getText()
     }
+
+    public get bottom () {
+        return $$(locator.footerDetails);
+    }
+
+    public async verifyTheResults(verifyText:string) {
+
+        let nav = browser.$$(locator.listOfAllSub_Menu);
+        await nav.forEach(async (element)=>{
+
+            if((await element.getText()).includes(verifyText))
+            {
+                 return true
+
+            }
+        })
+    }
 }
 
 export default new ActiveReportPage();

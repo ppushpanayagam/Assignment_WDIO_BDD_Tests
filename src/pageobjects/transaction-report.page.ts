@@ -62,6 +62,19 @@ class TransactionReportPage extends Page {
         return $$(locator.footerDetails);
     }
 
+    public async verifyTheResults(verifyText:string) {
+
+        let nav = browser.$$(locator.listOfAllSub_Menu);
+        await nav.forEach(async (element)=>{
+
+            if((await element.getText()).includes(verifyText))
+            {
+                 return true
+
+            }
+        })
+    }
+
 }
 
 export default new TransactionReportPage();

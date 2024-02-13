@@ -22,18 +22,17 @@ Given(/^the user should be redirected to the Active Report page$/, async () => {
 
 When(/^the user set the expected date range to view the active report$/, async () => {
     
-    // await transactionReportPage.clickOnDateRange()
-    // await transactionReportPage.enterStartDate(data.startDate)
-    // await transactionReportPage.enterEndDate(data.endDate)
+    
 });
 
 When(/^the user click on main filter apply button$/, async () => {
     
-    // await transactionReportPage.clickOnApplyButton()
-    // await transactionReportPage.clickOnApplyBtnToFilter()
+   
 });
 
 Then(/^the user should see the active report for the specified date range$/, async () => {
-    
+
+    await expect(activeReportPage.verifyTheResults(data.startDate)).toBeTruthy()
+    await expect(activeReportPage.verifyTheResults(data.endDate)).toBeTruthy()
 
 });

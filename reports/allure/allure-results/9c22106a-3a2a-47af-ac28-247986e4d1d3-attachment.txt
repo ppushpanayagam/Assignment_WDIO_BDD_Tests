@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": ".range_inputs>button:first-child"
-}

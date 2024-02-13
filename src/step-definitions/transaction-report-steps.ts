@@ -40,10 +40,14 @@ When(/^the user click on apply button$/, async () => {
 
 Then(/^the user should see the transaction report for the specified date range$/, async () => {
     
+    await expect(transactionReportPage.verifyTheResults(data.startDate)).toBeTruthy()
+    await expect(transactionReportPage.verifyTheResults(data.endDate)).toBeTruthy()
 
 });
 
 Then(/^the user should see the price and commission as expected$/, async () => {
     
+    await expect(transactionReportPage.verifyTheResults(data.totalSales)).toBeTruthy()
+    await expect(transactionReportPage.verifyTheResults(data.totalCommission)).toBeTruthy()
 });
 

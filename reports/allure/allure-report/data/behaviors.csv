@@ -1,3 +1,4 @@
 "Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"","User verify the Login page: Successfully log into webgains app with valid credentials","","0","0","17","0","0"
-"","User able to view the Transaction Report: Verify user able to view Transaction Report with specific date range","","0","0","11","2","0"
+"","User verify the Active Report: Verify user able to view Active Report with specific date range","","0","0","5","8","0"
+"","User able to view the Transaction Report: Verify user able to view Transaction Report with specific date range","","0","0","5","8","0"
+"","User verify the Login page: Successfully log into webgains app with valid credentials","","0","0","5","0","0"
