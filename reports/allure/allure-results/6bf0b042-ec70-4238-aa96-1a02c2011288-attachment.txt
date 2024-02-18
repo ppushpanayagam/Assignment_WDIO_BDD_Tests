@@ -1,0 +1,4 @@
+{
+  "script": "\n      var callback = arguments[arguments.length - 1];\n      var context = {\"exclude\":[]} || document;\n      var options = {} || {};\n      window.axe.runPartial(context, options).then(function (partials) {\n        callback(JSON.stringify(partials))\n      });",
+  "args": []
+}

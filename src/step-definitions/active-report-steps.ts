@@ -4,10 +4,6 @@ import dashBoardPage from '../pageobjects/dashboard.page';
 import * as data from '../../config/testData.json'
 import activeReportPage from '../pageobjects/active-report.page';
 
-Given(/^the user on the webgains dashboard page$/, async () => {
-    
-    expect(await dashBoardPage.verifyDashBoardPageHeaderText()).toBe(data.DashBoard_Title)
-});
 
 Given(/^the user click on the Active Report sub-navigation menu$/, async () => {
     

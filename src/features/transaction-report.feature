@@ -6,7 +6,7 @@ Feature: User able to view the Transaction Report
         And the user click on the login button
         Then the user should land on the webgains dashboard page
 
-        @dev
+        
         Scenario: Verify user able to view Transaction Report with specific date range
             Given the user on the webgains dashboard page
             And the user select the Reports navigation menu
